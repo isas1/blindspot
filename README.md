@@ -32,7 +32,7 @@ Each run reads the current session's conversation plus your running log at `~/.c
 ### Marketplace (recommended)
 
 ```
-/plugin marketplace add <your-github-username>/blindspot
+/plugin marketplace add isas1/blindspot
 /plugin install blindspot@blindspot
 ```
 
@@ -41,7 +41,7 @@ Then restart Claude Code or run `/reload-plugins`. This installs the skill and t
 ### Local (development)
 
 ```bash
-git clone https://github.com/<your-github-username>/blindspot
+git clone https://github.com/isas1/blindspot
 cd blindspot
 bash scripts/link-skill.sh   # symlinks the skill into ~/.claude/skills (no hook)
 ```

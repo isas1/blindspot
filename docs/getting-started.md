@@ -9,7 +9,7 @@ Blindspot is best earned, not assumed. Install just the skill, run it by hand fo
 From inside Claude Code:
 
 ```
-/plugin marketplace add <your-github-username>/blindspot
+/plugin marketplace add isas1/blindspot
 /plugin install blindspot@blindspot
 ```
 
@@ -18,7 +18,7 @@ Restart Claude Code (or run `/reload-plugins`). This installs the `/blindspot` s
 ### Option B — Local symlink (for development)
 
 ```bash
-git clone https://github.com/<your-github-username>/blindspot
+git clone https://github.com/isas1/blindspot
 cd blindspot
 bash scripts/link-skill.sh
 ```

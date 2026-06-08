@@ -4,10 +4,10 @@
   "version": "0.1.0",
   "description": "A reflective mirror for Claude Code. Surfaces patterns in your own thinking, decisions, and work across sessions — friction, progress, and mental-health signals — backed by your own words. Manual /blindspot, with an optional gentle nudge.",
   "author": {
-    "name": "<your name>"
+    "name": "isas1"
   },
-  "homepage": "https://github.com/<your-github-username>/blindspot",
-  "repository": "https://github.com/<your-github-username>/blindspot",
+  "homepage": "https://github.com/isas1/blindspot",
+  "repository": "https://github.com/isas1/blindspot",
   "license": "MIT",
   "keywords": ["reflection", "self-awareness", "patterns", "journaling", "wellbeing"],
   "skills": "./skills"
