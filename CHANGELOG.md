@@ -3,6 +3,24 @@
 All notable changes to this project are documented here. Format loosely follows
 [Keep a Changelog](https://keepachangelog.com/); this project uses [SemVer](https://semver.org/).
 
+## [0.2.0] — 2026-06-08
+
+### Added
+- "Strain and sustainable pace" tier in the skill: a middle band between
+  everyday friction and the distress hard-stop. Grounded in a real staged
+  burnout progression (the "one more prompt" pull → cognitive degradation →
+  tone drift → heavier accumulation), it watches for gradual buildup and offers
+  light, optional nudges that **carry their reason** — context-backed ("you've
+  rephrased this three times and it's circling"), never a bare "take a break."
+  Treats clear long sessions as flow (don't interrupt), backs the user when they
+  say they want to stop, and stays strictly evidence-gated: says nothing when no
+  cue is present.
+
+### Changed
+- Skill description now names strain/fatigue alongside friction, progress, and
+  heavier mental-health signals.
+- Distress section reframed as the top of a ladder above the strain band.
+
 ## [0.1.0] — 2026-06-08
 
 ### Added
