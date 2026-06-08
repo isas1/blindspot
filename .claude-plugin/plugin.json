@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin.json",
+  "name": "blindspot",
+  "version": "0.1.0",
+  "description": "A reflective mirror for Claude Code. Surfaces patterns in your own thinking, decisions, and work across sessions — friction, progress, and mental-health signals — backed by your own words. Manual /blindspot, with an optional gentle nudge.",
+  "author": {
+    "name": "<your name>"
+  },
+  "homepage": "https://github.com/<your-github-username>/blindspot",
+  "repository": "https://github.com/<your-github-username>/blindspot",
+  "license": "MIT",
+  "keywords": ["reflection", "self-awareness", "patterns", "journaling", "wellbeing"],
+  "skills": "./skills"
+}

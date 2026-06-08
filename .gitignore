@@ -1,0 +1,19 @@
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.idea/
+.vscode/
+
+# Local Claude Code state for this repo (permissions, etc.)
+.claude/
+
+# Node (only if you later add tooling)
+node_modules/
+
+# Never commit anyone's actual blindspot log if it lands here by accident.
+# The real file lives in ~/.claude/blindspot/sessions.md, not in this repo.
+sessions.md
+.last-nudge
+.last-checkin
