@@ -76,6 +76,10 @@ echo
 # self-harm hard-stop invariant ("overrides everything" + pointing to a crisis
 # line). The budgets: full prompt <= 8000 chars (Custom GPT instructions field),
 # compact card <= 1600 chars (small custom-instruction fields).
+# Budgets are measured in BYTES (wc -c) on purpose: bytes are a strict upper
+# bound on characters, so the check can fail early but never pass a file that
+# is too big — and unlike `wc -m`, the result doesn't change with locale
+# (under LC_ALL=C, wc -m silently counts bytes anyway).
 echo "Portable:"
 check_invariants() {
   f="$1"; label="$2"
