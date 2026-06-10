@@ -3,6 +3,33 @@
 All notable changes to this project are documented here. Format loosely follows
 [Keep a Changelog](https://keepachangelog.com/); this project uses [SemVer](https://semver.org/).
 
+## [0.3.0] — 2026-06-10
+
+### Added
+- **Portable Blindspot** (`portable/`): the mirror for any LLM, no Claude Code
+  required. Two self-contained versions — `blindspot-prompt.md` (full, fits a
+  Custom GPT instructions field) and `blindspot-compact.md` (~1.4k-char card for
+  small custom-instruction fields). Memory becomes a user-kept log note: paste
+  it in at check-in, copy the emitted fenced entry back out. Both versions
+  preserve the evidence discipline, the strain tier, and the distress/self-harm
+  hard stop, and stay dormant until the user asks for a check-in (the portable
+  equivalent of `disable-model-invocation: true`).
+- `docs/any-llm.md`: per-platform setup guide (ChatGPT Projects/Custom GPTs,
+  Claude.ai Projects, Gemini Gems, Copilot, local models) and the log ritual.
+- `scripts/validate.sh` now checks the portable files: presence, character
+  budgets (8000 full / 1600 compact), and that the self-harm hard-stop
+  invariant is present in both portable versions and the skill.
+- `ARCHITECTURE.md`: the three-artifact model, the v0.3.0 design decisions and
+  their rationale (setup-vs-request discriminator, user-carried log, date
+  honesty, the no-log-entry rule on hard stop), and open items.
+
+### Changed
+- Skill output format gains an explicit "no clear pattern this time" path, so
+  the format never pressures the model into inventing a pattern to fill slots.
+- Hard stop now explicitly produces no log entry (skill and portable versions),
+  closing a loophole where a self-harm disclosure could be folded into the
+  persistent record by the unconditional end-of-check-in log block.
+
 ## [0.2.0] — 2026-06-08
 
 ### Added

@@ -71,6 +71,52 @@ for j in ".claude-plugin/plugin.json" ".claude-plugin/marketplace.json" "hooks/h
 done
 echo
 
+# --- Portable prompts ----------------------------------------------------------
+# The portable versions must exist, fit their platform budgets, and preserve the
+# self-harm hard-stop invariant ("overrides everything" + pointing to a crisis
+# line). The budgets: full prompt <= 8000 chars (Custom GPT instructions field),
+# compact card <= 1600 chars (small custom-instruction fields).
+echo "Portable:"
+check_invariants() {
+  f="$1"; label="$2"
+  if grep -qi 'overrides everything' "${f}" && grep -qi 'crisis line' "${f}"; then
+    ok "${label}: self-harm hard-stop invariant present"
+  else
+    err "${label}: missing self-harm hard-stop invariant ('overrides everything' + 'crisis line')"
+  fi
+}
+
+full="${REPO}/portable/blindspot-prompt.md"
+compact="${REPO}/portable/blindspot-compact.md"
+
+if [ ! -f "${full}" ]; then
+  err "portable/blindspot-prompt.md: missing"
+else
+  size=$(wc -c < "${full}" | tr -d ' ')
+  if [ "${size}" -gt 8000 ]; then
+    err "portable/blindspot-prompt.md: ${size} chars (budget 8000 — Custom GPT limit)"
+  else
+    ok "portable/blindspot-prompt.md: ${size} chars (budget 8000)"
+  fi
+  check_invariants "${full}" "portable/blindspot-prompt.md"
+fi
+
+if [ ! -f "${compact}" ]; then
+  err "portable/blindspot-compact.md: missing"
+else
+  size=$(wc -c < "${compact}" | tr -d ' ')
+  if [ "${size}" -gt 1600 ]; then
+    err "portable/blindspot-compact.md: ${size} chars (budget 1600)"
+  else
+    ok "portable/blindspot-compact.md: ${size} chars (budget 1600)"
+  fi
+  check_invariants "${compact}" "portable/blindspot-compact.md"
+fi
+
+skill_md="${REPO}/skills/blindspot/SKILL.md"
+[ -f "${skill_md}" ] && check_invariants "${skill_md}" "skills/blindspot/SKILL.md"
+echo
+
 # --- Hook --------------------------------------------------------------------
 echo "Hook:"
 hook="${REPO}/hooks/session-start.sh"
