@@ -1,6 +1,6 @@
 # Blindspot
 
-A reflective mirror for [Claude Code](https://code.claude.com).
+A reflective mirror for [Claude Code](https://code.claude.com) — and, via the [portable prompts](portable/), for any LLM.
 
 Blindspot surfaces patterns in your own thinking, decisions, and work that are hard to see from the inside — where you're making progress, where you're stuck, and any signal that the work is starting to cost you. Every observation is tied to evidence from your own words. It is **not** a therapist, coach, or diagnostician: it observes and names patterns; you decide what they mean.
 
@@ -74,6 +74,15 @@ By default the skill is manual and the hook only reminds you. If you'd rather Cl
 
 This trades control for convenience. Test the manual version first; the trap of automation is producing reflections you never actually read.
 
+## Use it with any LLM
+
+Blindspot is, at its core, a prompt and a log — neither needs Claude Code. The [portable/](portable/) folder has two self-contained versions:
+
+- **[portable/blindspot-prompt.md](portable/blindspot-prompt.md)** — the full mirror. Paste it at the end of any chat conversation (the paste itself triggers the check-in), or install it as ChatGPT Project / Custom GPT / Claude.ai Project / Gemini Gem instructions, or as a local model's system prompt.
+- **[portable/blindspot-compact.md](portable/blindspot-compact.md)** — a ~1.6k-char card for small custom-instruction fields.
+
+Without a filesystem, **you** carry the memory: keep a private note, paste it in at check-in, and copy the fenced log entry the mirror emits back into the note. Same EVIDENCE/READS discipline, same strain tier, same hard stop. Per-platform setup: [docs/any-llm.md](docs/any-llm.md).
+
 ## Privacy
 
 Everything stays on your machine in `~/.claude/blindspot/`. Nothing is uploaded, synced, or sent anywhere. The file accumulates personal — sometimes sensitive — signals, so treat it like a journal. Details and deletion instructions: [docs/privacy.md](docs/privacy.md).
@@ -88,6 +97,10 @@ blindspot/
 ├── skills/
 │   └── blindspot/
 │       └── SKILL.md         # the skill itself
+├── portable/
+│   ├── blindspot-prompt.md  # the full mirror for any LLM (paste-in / Custom GPT / Gem)
+│   ├── blindspot-compact.md # ~1.6k-char card for small custom-instruction fields
+│   └── README.md
 ├── hooks/
 │   ├── hooks.json           # wires the SessionStart nudge
 │   └── session-start.sh     # gated, reminder-only nudge script
@@ -98,8 +111,10 @@ blindspot/
 │   └── sessions-example.md  # what a populated log looks like
 ├── docs/
 │   ├── getting-started.md
+│   ├── any-llm.md           # using blindspot outside Claude Code
 │   └── privacy.md
 ├── README.md
+├── ARCHITECTURE.md          # design decisions and rationale
 ├── CHANGELOG.md
 ├── CLAUDE.md                # notes for working on this repo
 └── LICENSE
@@ -111,7 +126,7 @@ blindspot/
 bash scripts/validate.sh
 ```
 
-Checks skill frontmatter, name/directory match, description length, JSON validity, and hook executability.
+Checks skill frontmatter, name/directory match, description length, JSON validity, hook executability, and the portable prompts (presence, size budgets, and that the self-harm hard-stop invariant is intact in all three versions of the mirror).
 
 ## License
 

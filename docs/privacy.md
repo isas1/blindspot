@@ -29,6 +29,10 @@ rm -rf ~/.claude/blindspot
 
 The skill recreates an empty file on next use.
 
+## If you use the portable version
+
+With the [portable prompts](../portable/), the log is a note **you** keep — in whatever app you chose. Everything above still applies in spirit, but the locality guarantees become yours to uphold: a note in a synced notes app is synced; a log pasted into a chat is sent to that provider like any other message. Choose where the note lives with that in mind.
+
 ## On the mental-health dimension
 
 Blindspot is a mirror, not a clinician. It is built to *stop* analyzing and respond plainly when it detects distress, and to set the tool down entirely at any sign of self-harm (see the skill's "Hard stop: distress" section). It is not a substitute for professional support, a crisis line, or a person you trust. If you are struggling, reach out to one of those.
